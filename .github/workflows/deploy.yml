@@ -24,16 +24,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ★ 先に pnpm を入れる
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # ★ 次に Node（pnpm cache を使う）
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -45,15 +47,3 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
