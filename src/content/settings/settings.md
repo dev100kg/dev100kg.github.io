@@ -14,11 +14,11 @@ site:
 
 hero:
   headline: '一緒に、良いシステムを作りませんか'
-  subcopy: '求人媒体とWantedlyの記事をまとめています。'
-  badge: '中途採用 / Recruit'
+  subcopy: '確かな技術で官公庁のシステムを支えています。'
+  badge: '中途採用'
   features:
-    - 官公庁・金融の開発実績
-    - 未経験者向けJava研修 3ヶ月
+    - 名古屋証券取引所ネクスト市場上場
+    - テレワーク実施率率◯◯%(2025年)
 
 brand:
   companyName: '株式会社日本オーエー研究所'
