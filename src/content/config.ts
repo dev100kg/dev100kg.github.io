@@ -41,18 +41,11 @@ const settings = defineCollection({
     hero: z.object({
       headline: z.string(),
       subcopy: z.string().optional(),
-      badge: z.string().optional(),
       features: z.array(z.string()).optional(),
     }),
     brand: z
       .object({
         companyName: z.string().optional(),
-        logo: z
-          .object({
-            src: z.string(),
-            alt: z.string().optional(),
-          })
-          .optional(),
       })
       .optional(),
   }),
