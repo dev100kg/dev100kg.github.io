@@ -1,6 +1,6 @@
 ---
 title: Wantedly おすすめ記事
-description: まず読んでほしい記事をまとめました
+description: 社内の雰囲気や、働き方が伝わる記事です
 items:
   # Wantedlyの記事を追加していく
   # - label: '記事のタイトル'
