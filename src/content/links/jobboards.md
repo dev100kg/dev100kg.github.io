@@ -16,5 +16,5 @@ items:
       - '経験者'
       - '上流工程'
       - 'テレワーク可'
-    enabled: false # enabledがfalseの場合、掲載終了として扱う
+    enabled: true
 ---
