@@ -11,7 +11,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "check": "astro check"
+    "check": "astro check",
+    "format:check:md": "prettier \"src/content/**/*.md\" --check",
+    "format:md": "prettier \"src/content/**/*.md\" --write"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
