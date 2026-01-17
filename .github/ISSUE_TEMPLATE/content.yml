@@ -12,6 +12,8 @@ body:
         - 求人情報更新
         - Wantedly記事追加
         - Wantedly記事差し替え
+        - ページ設定更新
+        - ページ設定追加
     validations:
       required: true
   - type: textarea
