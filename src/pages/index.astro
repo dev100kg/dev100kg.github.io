@@ -32,6 +32,8 @@ const twCreator = settings.site.twitter?.creator;
 
 const hero = settings.hero;
 const heroFeatures: string[] = hero?.features ?? [];
+const companyName = settings.brand?.companyName ?? pageTitle;
+const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -78,5 +80,21 @@ const heroFeatures: string[] = hero?.features ?? [];
         </section>
       </div>
     </main>
+
+    <footer class="border-t border-slate-200/80 bg-white/70 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-6 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="font-medium text-slate-700">
+          © {currentYear}
+          <a href="https://noar.co.jp" target="_blank">{companyName}</a>
+        </div>
+        <nav class="flex flex-wrap items-center gap-4">
+          <a class="transition hover:text-sky-600" href="#jobboards">求人媒体</a>
+          <a class="transition hover:text-sky-600" href="#wantedly">Wantedly</a>
+          <a class="transition hover:text-sky-600" href="#">トップへ</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
