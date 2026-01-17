@@ -1,6 +1,6 @@
 name: 求人・コンテンツ更新
 description: 求人情報やWantedly記事の更新
-title: '[Content] '
+title: '[サイト更新] '
 labels: ['content']
 body:
   - type: dropdown
