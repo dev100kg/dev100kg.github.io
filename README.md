@@ -44,11 +44,12 @@ Pull Request作成
 - GitHub上で ✏️ アイコンから編集
 - 編集OK：
   - `src/content/**` の `.md` ファイル
+  - `src/content/settings/settings.md`（ページ設定の更新用）
 
 - 編集NG：
   - `src/pages/`
   - `src/components/`
-  - 設定ファイル類
+  - 上記以外の設定ファイル類
 
 ---
 
@@ -85,5 +86,5 @@ Pull Request作成
 ## 禁止事項
 
 - ❌ main への直接編集・push
-- ❌ 設定ファイルの編集
+- ❌ 設定ファイルの編集（`src/content/settings/settings.md` を除く）
 - ❌ CIエラーを無視したmerge
