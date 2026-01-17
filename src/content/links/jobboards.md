@@ -8,5 +8,5 @@ items:
     tags:
       - 'リモート可'
       - '経験者'
-    enabled: false # enabledがfalseの場合、掲載終了として扱う
+    enabled: true # enabledがfalseの場合、掲載終了として扱う
 ---
