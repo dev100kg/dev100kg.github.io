@@ -40,7 +40,6 @@ const settings = defineCollection({
     }),
     hero: z.object({
       headline: z.string(),
-      subcopy: z.string().optional(),
       features: z.array(z.string()).optional(),
     }),
     brand: z
