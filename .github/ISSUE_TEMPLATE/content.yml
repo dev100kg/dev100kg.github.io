@@ -1,0 +1,23 @@
+name: 求人・コンテンツ更新
+description: 求人情報やWantedly記事の更新
+title: '[Content] '
+labels: ['content']
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 種別
+      options:
+        - 求人情報追加
+        - 求人情報更新
+        - Wantedly記事追加
+        - Wantedly記事差し替え
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 変更内容
+      description: 何をどう変えるか簡単に
+    validations:
+      required: true
