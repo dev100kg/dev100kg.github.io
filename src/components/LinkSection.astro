@@ -30,31 +30,31 @@ const isMuted = sectionVariant === 'muted';
 const countBadgeClass = [
   'shrink-0 rounded-full px-3 py-1 text-xs font-semibold ring-1 flex items-center gap-2 tabular-nums',
   isHighlight
-    ? 'bg-sky-100 text-sky-700 ring-sky-200'
+    ? 'bg-emerald-100/80 text-emerald-800 ring-emerald-200'
     : isMuted
       ? 'bg-slate-100 text-slate-500 ring-slate-200'
-      : 'bg-sky-50 text-sky-700 ring-sky-200',
+      : 'bg-emerald-50 text-emerald-700 ring-emerald-200',
 ].join(' ');
 
 const cardBaseClass = [
-  'group block rounded-xl border bg-white/80 p-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300',
+  'group block rounded-xl border bg-white/85 p-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300',
   isHighlight
-    ? 'border-sky-200 bg-white shadow-[0_12px_28px_rgba(14,116,144,0.14)] hover:border-sky-400 hover:bg-sky-50/80 hover:shadow-[0_16px_34px_rgba(14,116,144,0.18)]'
+    ? 'border-emerald-200/80 bg-white shadow-[0_12px_28px_rgba(16,185,129,0.12)] hover:border-emerald-300 hover:bg-emerald-50/70 hover:shadow-[0_16px_34px_rgba(16,185,129,0.16)]'
     : isMuted
       ? 'border-slate-100 bg-slate-50/70 hover:border-slate-300 hover:bg-white/80 hover:shadow-sm'
-      : 'border-slate-100 hover:border-sky-400 hover:bg-sky-50/70 hover:shadow-sm',
+      : 'border-slate-100 hover:border-emerald-300 hover:bg-emerald-50/60 hover:shadow-sm',
 ].join(' ');
 
 const labelClass =
-  'truncate font-semibold text-slate-900 transition-colors group-hover:text-sky-600 group-hover:underline group-hover:underline-offset-4';
+  'truncate font-semibold text-slate-900 transition-colors group-hover:text-emerald-700 group-hover:underline group-hover:underline-offset-4';
 const metaTextClass = isHighlight ? 'text-slate-500' : 'text-slate-400';
-const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-sky-600';
+const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-emerald-600';
 ---
 
 <section
   class={`rounded-2xl border p-5 sm:p-6 shadow-[0_20px_40px_rgba(15,23,42,0.08)] backdrop-blur ${
     sectionVariant === 'highlight'
-      ? 'border-sky-200/70 bg-slate-50/60 shadow-[0_18px_32px_rgba(14,116,144,0.12)]'
+      ? 'border-emerald-200/70 bg-emerald-50/40 shadow-[0_18px_32px_rgba(16,185,129,0.12)]'
       : isMuted
         ? 'border-slate-200 bg-slate-50/80'
         : 'border-slate-200 bg-white/80'
@@ -75,7 +75,7 @@ const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-
 
   {
     visibleItems.length === 0 ? (
-      <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+      <div class="rounded-xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-600">
         現在、募集中の求人はありません。
       </div>
     ) : (
@@ -100,13 +100,13 @@ const arrowClass = 'mt-0.5 text-base text-slate-500 transition group-hover:text-
                       {it.tags.map((tag) => (
                         <span
                           class="inline-flex items-center rounded-full
-               border border-sky-200
-               bg-sky-50
+               border border-emerald-200
+               bg-emerald-50
                px-2.5 py-0.5
-               text-xs font-medium text-sky-800
+               text-xs font-medium text-emerald-800
                transition
-               group-hover:border-sky-300
-               group-hover:bg-sky-100"
+               group-hover:border-emerald-300
+               group-hover:bg-emerald-100"
                         >
                           {tag}
                         </span>
