@@ -9,4 +9,11 @@ items:
       - 'リモート可'
       - '経験者'
     enabled: false # enabledがfalseの場合、掲載終了として扱う
+  - label: 'テストきゅうじん'
+    url: 'https://example.com/test'
+    note: 'おなかがすきましたよね！'
+    tags:
+      - 'あいうえお'
+      - '未経験者'
+    enabled: true
 ---
