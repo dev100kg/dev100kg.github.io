@@ -3,7 +3,7 @@ import '../styles/global.css';
 import HeroSection from '../components/HeroSection.astro';
 import LinkSection from '../components/LinkSection.astro';
 import PageBackground from '../components/PageBackground.astro';
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
 const links = await getCollection('links');
 const jobboards = links.find((x) => x.slug === 'jobboards');
@@ -13,7 +13,7 @@ if (!jobboards || !wantedly) {
   throw new Error('必要なリンクコンテンツが見つかりません');
 }
 
-const settingsEntry = await getEntryBySlug('settings', 'settings');
+const settingsEntry = await getEntry('settings', 'settings');
 const settings = settingsEntry?.data;
 if (!settings) {
   throw new Error('設定ファイルが見つかりません');
@@ -31,10 +31,6 @@ const twSite = settings.site.twitter?.site;
 const twCreator = settings.site.twitter?.creator;
 
 const hero = settings.hero;
-//const logoSrc = settings.brand?.logo?.src;
-//const logoAlt = settings.brand?.logo?.alt ?? settings.brand?.companyName ?? 'Logo';
-
-// 任意：settings.hero.features があれば、信頼バッジとして表示
 const heroFeatures: string[] = hero?.features ?? [];
 ---
 
