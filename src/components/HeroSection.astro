@@ -1,0 +1,63 @@
+---
+type HeroData = {
+  headline: string;
+  subcopy?: string;
+};
+
+type Props = {
+  hero: HeroData;
+  features: string[];
+};
+
+const { hero, features } = Astro.props;
+---
+
+<header
+  class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/55 p-6 backdrop-blur sm:p-10"
+>
+  <!-- 追加の薄い演出 -->
+  <div class="pointer-events-none absolute inset-0">
+    <div
+      class="absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-sky-200/35 blur-3xl"
+    >
+    </div>
+    <div class="absolute top-8 right-8 h-72 w-72 rounded-full bg-emerald-200/25 blur-3xl">
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="flex items-center justify-between gap-4">
+      <img
+        src={`${import.meta.env.BASE_URL}logo.svg`}
+        class="h-16 w-auto"
+        alt="株式会社日本オーエー研究所"
+      />
+    </div>
+
+    <h1 class="mt-6 text-[clamp(1rem,3cqw,3rem)] font-semibold tracking-tight text-slate-900">
+      <span class="bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+        {hero.headline}
+      </span>
+    </h1>
+
+    {
+      hero.subcopy && (
+        <p class="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          {hero.subcopy}
+        </p>
+      )
+    }
+
+    {
+      features.length > 0 && (
+        <div class="mt-6 flex flex-wrap gap-2">
+          {features.map((t) => (
+            <span class="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">
+              {t}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</header>
