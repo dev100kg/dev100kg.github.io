@@ -13,7 +13,7 @@ site:
     # creator: "@youraccount" # 任意
 
 hero:
-  headline: 'Empower IT solutions for asustainable society!'
+  headline: 'Empower IT solutions for a sustainable society!'
   subcopy: '株式会社日本オーエー研究所の中途採用向けの求人リンクとWantedly記事をまとめています。'
   features:
     - 名古屋証券取引所ネクスト市場上場
