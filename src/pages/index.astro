@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import LinkSection from '../components/LinkSection.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntryBySlug } from 'astro:content';
 
 const links = await getCollection('links');
 const jobboards = links.find((x) => x.slug === 'jobboards');
@@ -11,8 +11,8 @@ if (!jobboards || !wantedly) {
   throw new Error('必要なリンクコンテンツが見つかりません');
 }
 
-const settingsCol = await getCollection('settings');
-const settings = settingsCol[0]?.data;
+const settingsEntry = await getEntryBySlug('settings', 'settings');
+const settings = settingsEntry?.data;
 if (!settings) {
   throw new Error('設定ファイルが見つかりません');
 }
