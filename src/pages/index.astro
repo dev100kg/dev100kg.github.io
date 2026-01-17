@@ -37,6 +37,8 @@ const currentYear = new Date().getFullYear();
 const baseUrl = import.meta.env.BASE_URL;
 const siteUrl = Astro.site ? new URL(baseUrl, Astro.site).toString() : baseUrl;
 const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
+const siteHost = Astro.site?.hostname ?? '';
+const allowIndexing = siteHost !== '' && siteHost !== 'localhost' && !siteHost.endsWith('github.io');
 ---
 
 <!doctype html>
@@ -46,7 +48,10 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{pageTitle}</title>
 
-    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+    <meta
+      name="robots"
+      content={allowIndexing ? 'index,follow' : 'noindex,nofollow,noarchive,nosnippet'}
+    />
     <meta name="description" content={pageDesc} />
     <link rel="canonical" href={siteUrl} />
 
