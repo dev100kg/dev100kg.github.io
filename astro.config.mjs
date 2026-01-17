@@ -14,6 +14,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://mcr.noar.biz',
+  site: isCI
+    ? repoOwner
+      ? `https://${repoOwner}.github.io`
+      : `https://${repoName}.github.io`
+    : 'http://localhost:4321',
   base: isCI ? (isUserPages ? '/' : `/${repoName}/`) : '/',
 });
