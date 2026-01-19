@@ -4,16 +4,16 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 // Project Pages: https://<owner>.github.io/<repo>/ or User/Org Pages: https://<owner>.github.io/
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'recruit-lp';
-const isCI = process.env.CI === 'true';
 const repoOwner =
   process.env.GITHUB_REPOSITORY_OWNER ??
   process.env.GITHUB_REPOSITORY?.split('/')[0];
 const isUserPages = Boolean(repoOwner && repoName === `${repoOwner}.github.io`);
+const siteUrl = process.env.PUBLIC_SITE_URL ?? 'https://mcr.noar.biz';
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: isCI ? 'https://mcr.noar.biz' : 'http://localhost:4321',
+  site: siteUrl,
   base: '/',
 });
