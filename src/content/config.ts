@@ -38,6 +38,11 @@ const settings = defineCollection({
         })
         .optional(),
     }),
+    analytics: z
+      .object({
+        googleAnalyticsId: z.string().optional(),
+      })
+      .optional(),
     hero: z.object({
       headline: z.string(),
       features: z.array(z.string()).optional(),

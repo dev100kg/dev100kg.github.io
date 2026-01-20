@@ -9,14 +9,23 @@ const links = await getCollection('links');
 const jobboards = links.find((x) => x.slug === 'jobboards');
 const wantedly = links.find((x) => x.slug === 'wantedly');
 
-if (!jobboards || !wantedly) {
-  throw new Error('必要なリンクコンテンツが見つかりません');
+if (!jobboards) {
+  throw new Error(
+    'jobboards.md が見つかりません。src/content/links/jobboards.md を確認してください。',
+  );
+}
+if (!wantedly) {
+  throw new Error(
+    'wantedly.md が見つかりません。src/content/links/wantedly.md を確認してください。',
+  );
 }
 
 const settingsEntry = await getEntry('settings', 'settings');
 const settings = settingsEntry?.data;
 if (!settings) {
-  throw new Error('設定ファイルが見つかりません');
+  throw new Error(
+    'settings.md が見つかりません。src/content/settings/settings.md を確認してください。',
+  );
 }
 
 const pageTitle = settings.site.title;
@@ -29,6 +38,8 @@ const ogImage = settings.site.og?.image;
 const twCard = settings.site.twitter?.card ?? 'summary';
 const twSite = settings.site.twitter?.site;
 const twCreator = settings.site.twitter?.creator;
+
+const gaId = settings.analytics?.googleAnalyticsId;
 
 const hero = settings.hero;
 const heroFeatures: string[] = hero?.features ?? [];
@@ -43,8 +54,21 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
 <html lang="ja">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-2V244B0FGZ"></script>
-    <script is:inline defer src="/gtag-init.js"></script>
+    {
+      gaId && (
+        <>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+          <script is:inline define:vars={{ gaId }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              window.dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', gaId);
+          </script>
+        </>
+      )
+    }
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{pageTitle}</title>
@@ -107,7 +131,7 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
       >
         <div class="font-medium text-slate-900">
           © {currentYear}
-          <a href="https://noar.co.jp" target="_blank" rel="noopener noreferrer">{companyName}</a>
+          <a href="https://noar.co.jp" target="_blank" rel="noopener noreferrer nofollow">{companyName}</a>
         </div>
         <nav class="flex flex-wrap items-center gap-4 text-base text-slate-900">
           <a

@@ -11,6 +11,9 @@ site:
     # site: "@youraccount"   # 任意
     # creator: "@youraccount" # 任意
 
+analytics:
+  googleAnalyticsId: 'G-2V244B0FGZ'
+
 hero:
   headline: |-
     ITで社会を支えながら人も育てる。
