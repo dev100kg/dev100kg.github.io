@@ -28,10 +28,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Prettier check
-        run: pnpm run format:check:md
+        run: pnpm run format:check
 
       - name: ESLint
         run: pnpm run lint
 
       - name: Astro check
         run: pnpm run check
+
+      - name: Build test
+        run: pnpm run build

@@ -20,6 +20,7 @@ jobs:
     env:
       CI: 'true'
       GITHUB_OWNER: ${{ github.repository_owner }}
+      PUBLIC_SITE_URL: ${{ secrets.PUBLIC_SITE_URL || 'https://mcr.noar.biz' }}
     steps:
       - uses: actions/checkout@v4
 
