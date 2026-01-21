@@ -1,12 +1,14 @@
 ---
 import type { LinkItem } from '../types/content';
 
-const { title, description, items, variant } = Astro.props as {
+interface Props {
   title: string;
   description?: string;
   items: LinkItem[];
   variant?: 'default' | 'highlight' | 'muted';
-};
+}
+
+const { title, description, items, variant } = Astro.props as Props;
 
 const sectionVariant = variant ?? 'default';
 

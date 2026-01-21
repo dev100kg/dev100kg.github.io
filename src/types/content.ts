@@ -1,7 +1,5 @@
-export type LinkItem = {
-  label: string;
-  url: string;
-  note?: string;
-  enabled?: boolean;
-  tags?: string[];
-};
+import type { z } from 'astro:content';
+import { linkItemSchema } from '../content/config';
+
+// Zodスキーマから型を推論して一元管理
+export type LinkItem = z.infer<typeof linkItemSchema>;

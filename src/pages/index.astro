@@ -60,11 +60,11 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
           <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
           <script is:inline define:vars={{ gaId }}>
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
+            window.gtag = function gtag() {
               window.dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', gaId);
+            };
+            window.gtag('js', new Date());
+            window.gtag('config', gaId);
           </script>
         </>
       )
@@ -98,11 +98,7 @@ const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).toString() : undefined;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Murecho:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;600&family=Murecho:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>

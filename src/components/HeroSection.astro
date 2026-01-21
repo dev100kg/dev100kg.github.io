@@ -1,15 +1,15 @@
 ---
-type HeroData = {
+interface HeroData {
   headline: string;
   subcopy?: string;
-};
+}
 
-type Props = {
+interface Props {
   hero: HeroData;
   features: string[];
-};
+}
 
-const { hero, features } = Astro.props;
+const { hero, features } = Astro.props as Props;
 const headlineLines = hero.headline.split('\n');
 ---
 

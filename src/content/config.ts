@@ -1,19 +1,20 @@
 import { defineCollection, z } from 'astro:content';
 
+// LinkItemスキーマを別途定義して再利用可能にする
+export const linkItemSchema = z.object({
+  label: z.string(),
+  url: z.string().url(),
+  note: z.string().optional(),
+  enabled: z.boolean().default(true),
+  tags: z.array(z.string()).optional(),
+});
+
 const links = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    items: z.array(
-      z.object({
-        label: z.string(),
-        url: z.string().url(),
-        note: z.string().optional(),
-        enabled: z.boolean().default(true),
-        tags: z.array(z.string()).optional(),
-      }),
-    ),
+    items: z.array(linkItemSchema),
   }),
 });
 
